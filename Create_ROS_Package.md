@@ -79,7 +79,7 @@
     
     其中stamp包含 stamp.sec 和 stamp.nsec，这二者均为integer，前者为秒，后者为毫秒
     
-    - ② floa32类型即为浮点型
+    - ② float32类型即为浮点型
 
 - 查看package.xml, 确保它包含下面两条语句，如果不存在，请自行添加
 
