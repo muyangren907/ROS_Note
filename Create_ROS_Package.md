@@ -89,7 +89,7 @@
     * 打开CMakeLists.txt，找到find_package()代码块，最初应该显示如下
 
         ```
-    	find_package(catkin REQUIRED COMPONENTS
+        find_package(catkin REQUIRED COMPONENTS
 		  roscpp
 		  rospy
 		  std_msgs
@@ -400,4 +400,4 @@
 	$ roslaunch control_node_msgs BrakeCmd.launch
 	```
  - 结果如下图
- ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190716233052666.gif)
+ ![结果图](https://raw.githubusercontent.com/muyangren907/ROS_Note/master/screenshot/Create_ROS_Package_final.gif)
