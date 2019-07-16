@@ -12,8 +12,10 @@
 ### 目标
 * 创建一个消息发布器，向话题“Brake”发布“control_node_msgs/BrakeCmd”类型的自定义消息，自定义消息格式为：
 
-    > Header header
-    > float32 brake_cmd
+    ```
+    Header header
+    float32 brake_cmd
+    ```
 
 * 创建一个消息订阅器，订阅话题“Brake”的消息，并输出到屏幕。
 消息发布器和消息订阅器均使用C++实现，并使用 roslaunch启动
