@@ -69,14 +69,17 @@
     float32 brake_cmd
     ```
     
-    >Header类型详细参考
+    - ①.Header类型详细参考
     [std_msgs/Header Message](http://docs.ros.org/api/std_msgs/html/msg/Header.html)
     此处简略说明，即Header包含3个成员
-    uint32 seq
-    time stamp
-    string frame_id
+    
+        * uint32 seq
+        * time stamp
+        * string frame_id
+    
     其中stamp包含 stamp.sec 和 stamp.nsec，这二者均为integer，前者为秒，后者为毫秒
-    floa32类型即为浮点型
+    
+    - ②.floa32类型即为浮点型
 
 - 查看package.xml, 确保它包含下面两条语句，如果不存在，请自行添加
 
@@ -90,7 +93,7 @@
 
         ```
         find_package(catkin REQUIRED COMPONENTS
-		  roscpp
+    	  roscpp
 		  rospy
 		  std_msgs
 		)
