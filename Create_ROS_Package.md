@@ -19,10 +19,10 @@
 消息发布器和消息订阅器均使用C++实现，并使用 roslaunch启动
 
 ### 演示环境：
-* 
-    * Ubuntu 16.04.6 LTS (Xenial) amd64
-    * ROS Kinetic
-    * catkin
+
+* Ubuntu 16.04.6 LTS (Xenial) amd64
+* ROS Kinetic
+* catkin
 
 ### 操作步骤
 
