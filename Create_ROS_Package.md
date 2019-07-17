@@ -18,7 +18,7 @@
     ```
 
 * 创建一个消息订阅器，订阅话题“Brake”的消息，并输出到屏幕。
-* 消息发布器和消息订阅器均使用C++实现，并使用 roslaunch启动
+* 消息发布器和消息订阅器均使用C++实现，并使用`roslaunch`启动
 
 ### 演示环境：
 
@@ -35,7 +35,7 @@
     $ mkdir ~/catkin_ws
     ```
 
-- 进入catkin工作目录，创建并进入src源码文件夹
+- 进入catkin工作目录，创建并进入`src`源码文件夹
 
     ```
     $ cd ~/catkin_ws
@@ -49,16 +49,16 @@
     $ catkin_create_pkg control_node_msgs std_msgs rospy roscpp
     ```
     
-   > 这将会在 ~/catkin_ws/src 目录下创建一个名为control_node_msgs 的文件夹，这个文件夹里面包含一个package.xml文件和一个CMakeLists.txt文件，这两个文件都已经自动包含了部分你在执行catkin_create_pkg命令时提供的信息。
+   > 这将会在 `~/catkin_ws/src` 目录下创建一个名为`control_node_msgs`的文件夹，这个文件夹里面包含一个`package.xml`文件和一个`CMakeLists.txt`文件，这两个文件都已经自动包含了部分你在执行`catkin_create_pkg`命令时提供的信息。
 
 #### 2.创建自定义消息
-- 创建并进入msg文件夹
+- 创建并进入`msg`文件夹
 
     ```
     $ mkdir ~/catkin_ws/src/control_node_msgs/msg
     $ cd ~/catkin_ws/src/control_node_msgs/msg
     ```
-- 创建 .msg 的自定义消息文件
+- 创建`.msg`的自定义消息文件
 
     ```
     $ touch BrakeCmd.msg
@@ -71,7 +71,7 @@
     float32 brake_cmd
     ```
     
-    - ① Header类型详细参考
+    - ① `Header`类型详细参考
     [std_msgs/Header Message](http://docs.ros.org/api/std_msgs/html/msg/Header.html)
     此处简略说明，即Header包含3个成员
     
@@ -79,19 +79,19 @@
         * time stamp
         * string frame_id
     
-    其中stamp包含 stamp.sec 和 stamp.nsec，这二者均为integer，前者为秒，后者为毫秒
+    其中`stamp`包含`stamp.sec`和`stamp.nsec`，这二者均为integer，前者为秒，后者为毫秒
     
-    - ② float32类型即为浮点型
+    - ② `float32`类型即为浮点型
 
-- 查看package.xml, 确保它包含下面两条语句，如果不存在，请自行添加
+- 查看`package.xml`, 确保它包含下面两条语句，如果不存在，请自行添加
 
 ```
   <build_depend>message_generation</build_depend>
   <exec_depend>message_runtime</exec_depend>
 ```
 
-- 修改CMakeLists.txt文件
-    * 打开CMakeLists.txt，找到find_package()代码块，最初应该显示如下
+- 修改`CMakeLists.txt`文件
+    * 打开`CMakeLists.txt`，找到`find_package`代码块，最初应该显示如下
 
         ```
         find_package(catkin REQUIRED COMPONENTS
@@ -101,7 +101,7 @@
 		)
 		```
 
-	* 在加上一项message_generation，即将其变为
+	* 在加上一项`message_generation`，即将其变为
 
 		```
 		find_package(catkin REQUIRED COMPONENTS
@@ -112,7 +112,7 @@
 		)
 		```
 
-	* 找到catkin_package()代码块，开始时应该显示如下
+	* 找到`catkin_package`代码块，开始时应该显示如下
 
 		```
 		catkin_package(
@@ -123,7 +123,7 @@
 		)
 		```
 
-	* 加上 CATKIN_DEPENDS message_runtime ,使其变为如下
+	* 加上`CATKIN_DEPENDS message_runtime`,使其变为如下
 
 		```
 		catkin_package(
@@ -145,7 +145,7 @@
 		# )
 		```
 	
-	* 将其改为如下代码，其中.msg为刚才创建的.msg文件
+	* 将其改为如下代码，其中`*.msg`替换为刚才创建的`BrakeCmd.msg`文件
 	
 		```
 		 add_message_files(
@@ -215,7 +215,7 @@
 
 	* 此时再用上面提到的命令就能查看到自定义消息类型了
 
-#### 3.创建消息发布器和消息订阅器
+#### 3.创建`消息发布器`和`消息订阅器`
 
 - 进入程序包目录
 
@@ -223,21 +223,21 @@
 	$ cd ~/catkin_ws/src/control_node_msgs
 	```
 
-- 创建并进入 src 目录
+- 创建并进入`src`目录
 
 	```
 	$ mkdir src
 	$ cd src
 	```
 
-- 分别创建 talker.cpp 和 listener.cpp 文件，对应 消息发布器 和 消息订阅器
+- 分别创建`talker.cpp`和`listener.cpp`文件，对应`消息发布器`和`消息订阅器`
 
 	```
 	$ touch talker.cpp
 	$ touch listener.cpp
 	```
-- 下面给出 talker.cpp 和 listener.cpp 文件的源代码，代码说明请参考 [编写简单的消息发布器和订阅器 (C++)](http://wiki.ros.org/cn/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29)
-	* talker.cpp
+- 下面给出`talker.cpp`和`listener.cpp`文件的源代码，代码说明请参考 [编写简单的消息发布器和订阅器 (C++)](http://wiki.ros.org/cn/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29)
+	* `talker.cpp`
 
 		```
 		#include "ros/ros.h"
@@ -277,7 +277,7 @@
 		
 		```
 		
-	* listener.cpp
+	* `listener.cpp`
 
 		```
 		#include "ros/ros.h"
@@ -306,7 +306,7 @@
 		
 		```
 
-- 编译前需修改 CMakeLists.txt  文件，在其最后加上如下代码 ，不同的程序包记得修改后6行
+- 编译前需修改`CMakeLists.txt`文件，在其最后加上如下代码 ，不同的程序包记得修改后6行
 
 	```
 	include_directories(include ${catkin_INCLUDE_DIRS})
@@ -320,7 +320,7 @@
 	add_dependencies(listener control_node_msgs_generate_messages_cpp)
 	```
 
--  保存 CMakeLists.txt  文件，即可开始编译
+-  保存`CMakeLists.txt`文件，即可开始编译
 
 	```
 	$ cd ~/catkin_ws
@@ -363,27 +363,27 @@
 	[100%] Built target listener
 	```
 
-#### 4.使用roslaunch启动多个节点
+#### 4.使用`roslaunch`启动多个节点
 - 进入程序包目录
 
 	```
 	$ cd ~/catkin_ws/src/control_node_msgs
 	```
 
-- 创建并进入 src 目录
+- 创建并进入`launch`目录
 
 	```
 	$ mkdir launch
 	$ cd launch
 	```
 
-- 创建 BrakeCmd.launch 文件
+- 创建`BrakeCmd.launch`文件
 
 	```
 	$ touch BrakeCmd.launch
 	```
 
-- 在 BrakeCmd.launch 文件中填入如下内容
+- 在`BrakeCmd.launch`文件中填入如下内容
 
 	```
 	<launch>
@@ -392,7 +392,7 @@
 	</launch>
 	```
 
-	其中根元素采用 `<launch>` 标签定义，节点采用`<node>`标签定义，启动一个节点需要三个属性：pkg、type和name。其中pkg定义节点所在的功能包名称，type定义节点的可执行文件名称，这两个属性等同于在终端中使用rosrun命令执行节点时的输入参数。name属性用来定义节点运行的名称，将覆盖节点中init()赋予节点的名称。其余可选属性如下
+	其中根元素采用 `<launch>` 标签定义，节点采用`<node>`标签定义，启动一个节点需要三个属性：`pkg`、`type`和`name`。其中`pkg`定义节点所在的功能包名称，`type`定义节点的可执行文件名称，这两个属性等同于在终端中使用`rosrun`命令执行节点时的输入参数。`name`属性用来定义节点运行的名称，将覆盖节点中`init()`赋予节点的名称。其余可选属性如下
 	*  output = "screen"：将节点的标准输出打印到终端屏幕，默认输出为日志文档；
 	*  respawn = "true"：复位属性，该节点停止时，会自动重启，默认为false；
 	*  required = "true"：必要节点，当该节点终止时，launch文件中的其他节点也被终止；
