@@ -49,7 +49,7 @@
     $ catkin_create_pkg control_node_msgs std_msgs rospy roscpp
     ```
     
-   > 这将会在 `~/catkin_ws/src` 目录下创建一个名为`control_node_msgs`的文件夹，这个文件夹里面包含一个`package.xml`文件和一个`CMakeLists.txt`文件，这两个文件都已经自动包含了部分你在执行`catkin_create_pkg`命令时提供的信息。
+   这将会在 `~/catkin_ws/src` 目录下创建一个名为`control_node_msgs`的文件夹，这个文件夹里面包含一个`package.xml`文件和一个`CMakeLists.txt`文件，这两个文件都已经自动包含了部分你在执行`catkin_create_pkg`命令时提供的信息。
 
 #### 2.创建自定义消息
 - 创建并进入`msg`文件夹
